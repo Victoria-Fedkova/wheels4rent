@@ -1,7 +1,12 @@
+import MainSlider from '../../components/MainSlider/MainSlider';
+import { SliderContainer } from './MainPage.styled';
+
 export default function MainPage() {
   return (
     <>
-      <h1>Main page</h1>
+      <SliderContainer>
+        <MainSlider />
+      </SliderContainer>
     </>
   );
 }

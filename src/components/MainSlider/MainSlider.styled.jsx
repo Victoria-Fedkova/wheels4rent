@@ -1,0 +1,81 @@
+import styled from 'styled-components';
+import img from '../../assets/Ads2.png';
+import img1 from '../../assets/Ads.png';
+import Slider from 'react-slick';
+
+export const TestSlider = styled(Slider)`
+  & .slick-slide {
+    min-width: 335px;
+    max-width: 335px;
+
+    padding: 10px 20px;
+
+    border-radius: 20px;
+
+    text-align: left;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @media screen and (min-width: 768px) {
+      min-width: 580px;
+      max-width: 580px;
+    }
+
+    @media screen and (min-width: 1440px) {
+      margin-right: 24px;
+    }
+    &:nth-child(even) {
+      border: 1px solid #54a6ff;
+      background-image: url(${img1});
+    }
+    &:nth-child(odd) {
+      border: 1px solid #3563e9;
+      background-image: url(${img});
+      & a {
+        background-color: #54a6ff;
+      }
+    }
+    & a {
+      margin-top: 10px;
+      transition: all 250ms linear;
+
+      &:hover,
+      &:focus {
+        background-color: #0b44cd;
+      }
+    }
+    & img {
+      display: block;
+      max-height: 116px;
+      margin-left: auto;
+    }
+  }
+`;
+export const SliderWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  & div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    max-width: 60%;
+    min-height: 160px;
+  }
+
+  & h2 {
+    font-size: 32px;
+    line-height: 1.5;
+    letter-spacing: -0.03em;
+    font-weight: 700;
+  }
+
+  & p {
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+    font-weight: 500;
+  }
+`;

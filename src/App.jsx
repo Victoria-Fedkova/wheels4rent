@@ -4,7 +4,7 @@ import { lazy } from 'react';
 
 const MainPage = lazy(() => import('./pages/MainPage/MainPage'));
 const FavouritePage = lazy(() => import('./pages/FavouritePage/FavouritePage'));
-const SerchPage = lazy(() => import('./pages/SerchPage/SerchPage'));
+const CarsPage = lazy(() => import('./pages/CarsPage/CarsPage'));
 const NotFound = lazy(() => import('./pages/NotFound/NotFound'));
 import './App.css';
 import { SharedLayout } from './components/SharedLayout/SharedLayout';
@@ -15,7 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<MainPage />} />
-          <Route path="serch/*" element={<SerchPage />} />
+          <Route path="cars/*" element={<CarsPage />} />
           <Route path="favourite" element={<FavouritePage />} />
           <Route path="*" element={<NotFound />} />
         </Route>
