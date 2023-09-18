@@ -2,8 +2,13 @@ import styled from 'styled-components';
 
 export const Footer = styled.footer`
   color: #121417;
+  background-color: #fff;
 `;
-
+export const FooterWraper = styled.div`
+  max-width: 1248px;
+  margin: 0 auto;
+  padding: 0 2rem;
+`;
 export const FooterTopWrapper = styled.div`
   padding: 34px 0;
 

@@ -36,8 +36,8 @@ const GlobalStyle = createGlobalStyle`
 body {
   margin: 0; 
   padding: 0;
-  /* background-color: #F7F7FB; */
-  background-color: white;
+   background-color: #f6f7f9;
+
 
   font-family: 'Manrope',
   sans-serif;

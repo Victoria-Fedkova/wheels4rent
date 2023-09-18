@@ -35,6 +35,8 @@ export const store = configureStore({
     cars: contactsReducer,
     filter: filterReducer,
     likes: persistReducer(likesPersistConfig, likesReducer),
+    // likes: likesReducer,
+
     // popular: popularReducer,
     // recomended: recomendedReducer,
   },

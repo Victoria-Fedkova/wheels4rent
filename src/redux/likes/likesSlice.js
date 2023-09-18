@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const likesInitialState = [];
+const likesInitialState = { likes: [] };
 
 const likesSlice = createSlice({
   name: 'likes',
@@ -8,21 +8,14 @@ const likesSlice = createSlice({
   reducers: {
     addLike: {
       reducer(state, action) {
-        state.push(action.payload);
+        state.likes.push(action.payload);
       },
-      // prepare(name, number) {
-      //   return {
-      //     payload: {
-      //       name,
-      //       number,
-      //       id: nanoid(),
-      //     },
-      //   };
-      // },
     },
     deleteLike(state, action) {
-      const index = state.findIndex(item => item.id === action.payload.id);
-      state.splice(index, 1);
+      const index = state.likes.findIndex(
+        item => item.id === action.payload.id
+      );
+      state.likes.splice(index, 1);
     },
   },
 });

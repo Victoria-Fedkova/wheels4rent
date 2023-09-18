@@ -15,16 +15,16 @@ export const handleFulfilled = state => {
 };
 
 export const handleFetch = (state, action) => {
-  state.items = action.payload;
+  state.cars = action.payload;
 };
 
 export const handleUpdate = (state, { payload }) => {
-  const updateCarIndex = state.cars.findIndex(car => car.id === payload.id); // check
+  const updateCarIndex = state.cars.findIndex(car => car.id === payload.id);
 
   if (updateCarIndex >= 0) {
     state.cars[updateCarIndex] = {
       ...state.cars[updateCarIndex],
-      ...payload.cars,
+      ...payload,
     };
   }
   state.isLoading = false;

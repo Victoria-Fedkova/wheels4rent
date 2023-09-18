@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import img from '../../assets/Ads2.png';
-import img1 from '../../assets/Ads.png';
 import Slider from 'react-slick';
 
 export const TestSlider = styled(Slider)`
@@ -28,7 +27,7 @@ export const TestSlider = styled(Slider)`
     }
     &:nth-child(even) {
       border: 1px solid #54a6ff;
-      background-image: url(${img1});
+      background-image: url(${img});
     }
     &:nth-child(odd) {
       border: 1px solid #3563e9;

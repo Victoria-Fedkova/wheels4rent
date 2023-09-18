@@ -19,8 +19,8 @@ export const updateCar = createAsyncThunk(
   'cars/updateCar',
   async (payload, thunkAPI) => {
     try {
-      const { id, updatedCar } = payload;
-      const res = await axios.patch(`/cars/${id}`, updatedCar);
+      const { car, popular } = payload;
+      const res = await axios.put(`/cars/${car.id}`, { popular });
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

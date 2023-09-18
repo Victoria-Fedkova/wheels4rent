@@ -6,11 +6,11 @@ import PropTypes from 'prop-types';
 
 const modalRoot = document.querySelector('#modal-root');
 
-export const Modal = ({ onClose, car }) => {
+export const Modal = ({ setCarToShow, car }) => {
   useEffect(() => {
     const handleKeyDown = e => {
       if (e.code === 'Escape') {
-        onClose();
+        setCarToShow(null);
       }
     };
     document.addEventListener('keydown', handleKeyDown);
@@ -18,18 +18,18 @@ export const Modal = ({ onClose, car }) => {
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [onClose]);
+  }, [setCarToShow]);
 
   const handleBackdropClick = e => {
     if (e.currentTarget === e.target) {
-      onClose();
+      setCarToShow(null);
     }
   };
 
   return createPortal(
     <ModalOverlay onClick={handleBackdropClick}>
       <ModalWrapper>
-        <CarDetails car={car} onClose={onClose} />
+        <CarDetails car={car} setCarToShow={setCarToShow} />
       </ModalWrapper>
     </ModalOverlay>,
     modalRoot
@@ -38,22 +38,23 @@ export const Modal = ({ onClose, car }) => {
 
 CarDetails.propTypes = {
   car: PropTypes.shape({
-    id: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired,
     year: PropTypes.number.isRequired,
     make: PropTypes.string.isRequired,
     model: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     img: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    fuelConsumption: PropTypes.number.isRequired,
-    engineSize: PropTypes.number.isRequired,
+    fuelConsumption: PropTypes.string.isRequired,
+    engineSize: PropTypes.string.isRequired,
     accessories: PropTypes.arrayOf(PropTypes.string),
     functionalities: PropTypes.arrayOf(PropTypes.string),
-    rentalPrice: PropTypes.number.isRequired,
-    rentalCompany: PropTypes.number.isRequired,
-    address: PropTypes.number.isRequired,
-    rentalConditions: PropTypes.number.isRequired,
+    rentalPrice: PropTypes.string.isRequired,
+    rentalCompany: PropTypes.string.isRequired,
+    address: PropTypes.string.isRequired,
+    rentalConditions: PropTypes.string.isRequired,
     mileage: PropTypes.number.isRequired,
+    popular: PropTypes.number.isRequired,
   }),
-  onClose: PropTypes.func.isRequired,
+  setCarToShow: PropTypes.func.isRequired,
 };

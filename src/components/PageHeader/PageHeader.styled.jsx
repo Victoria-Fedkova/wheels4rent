@@ -2,13 +2,19 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const Header = styled.header`
+  border-bottom: 1px solid rgba(195, 212, 233, 0.4);
+  background-color: #fff;
+`;
+export const HeaderWraper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 92px;
-  border-bottom: 1px solid rgba(195, 212, 233, 0.4);
-`;
+  max-width: 1248px;
+  padding: 0 2rem;
 
+  margin: 0 auto;
+`;
 export const NavLinks = styled(NavLink)`
   transition: all 250ms linear;
   display: inline-flex;

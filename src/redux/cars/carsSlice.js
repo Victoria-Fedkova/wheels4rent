@@ -18,7 +18,7 @@ const STATUSES = {
 const contactsSlice = createSlice({
   name: 'cars',
   initialState: {
-    items: [],
+    cars: [],
     isLoading: false,
     error: null,
   },

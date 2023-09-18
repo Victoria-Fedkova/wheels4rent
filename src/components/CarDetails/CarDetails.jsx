@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
-
-export const CarDetails = ({ onClose, car }) => {
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClose } from '@fortawesome/free-solid-svg-icons';
+export const CarDetails = ({ setCarToShow, car }) => {
   const {
     id,
     year,
@@ -21,7 +22,9 @@ export const CarDetails = ({ onClose, car }) => {
 
   return (
     <div>
-      <button onClick={onClose()}>X</button>
+      <button onClick={() => setCarToShow(null)}>
+        <FontAwesomeIcon icon={faClose} />
+      </button>
       <img src={img} alt={make} />
       <h2>{`${make} ${model}, ${year}`}</h2>
       <p>{`${address.split(',')[1]} | ${
@@ -55,22 +58,23 @@ export const CarDetails = ({ onClose, car }) => {
 
 CarDetails.propTypes = {
   car: PropTypes.shape({
-    id: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired,
     year: PropTypes.number.isRequired,
     make: PropTypes.string.isRequired,
     model: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     img: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    fuelConsumption: PropTypes.number.isRequired,
-    engineSize: PropTypes.number.isRequired,
+    fuelConsumption: PropTypes.string.isRequired,
+    engineSize: PropTypes.string.isRequired,
     accessories: PropTypes.arrayOf(PropTypes.string),
     functionalities: PropTypes.arrayOf(PropTypes.string),
-    rentalPrice: PropTypes.number.isRequired,
-    rentalCompany: PropTypes.number.isRequired,
-    address: PropTypes.number.isRequired,
-    rentalConditions: PropTypes.number.isRequired,
+    rentalPrice: PropTypes.string.isRequired,
+    rentalCompany: PropTypes.string.isRequired,
+    address: PropTypes.string.isRequired,
+    rentalConditions: PropTypes.string.isRequired,
     mileage: PropTypes.number.isRequired,
+    popular: PropTypes.number.isRequired,
   }),
-  onClose: PropTypes.func.isRequired,
+  setCarToShow: PropTypes.func.isRequired,
 };
