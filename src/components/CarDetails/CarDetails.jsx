@@ -1,6 +1,13 @@
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose } from '@fortawesome/free-solid-svg-icons';
+import {
+  CarDetailsWraper,
+  ConditionsList,
+  PropListF,
+  PropListS,
+} from './CarDetails.styled';
+import { RentalCarBtn } from '../RentalCarBtn/RentalCarBtn';
 export const CarDetails = ({ setCarToShow, car }) => {
   const {
     id,
@@ -19,40 +26,67 @@ export const CarDetails = ({ setCarToShow, car }) => {
     rentalConditions,
     mileage,
   } = car;
-
+  const newMileage = new Intl.NumberFormat('en-US').format(mileage);
+  const newPrice = `${rentalPrice.slice(1)}$`;
   return (
-    <div>
+    <CarDetailsWraper>
       <button onClick={() => setCarToShow(null)}>
-        <FontAwesomeIcon icon={faClose} />
+        <FontAwesomeIcon icon={faClose} size="2x" />
       </button>
       <img src={img} alt={make} />
-      <h2>{`${make} ${model}, ${year}`}</h2>
-      <p>{`${address.split(',')[1]} | ${
-        address.split(',')[2]
-      } | Id: ${id} | Type: ${type}`}</p>
-      <p>{`Fuel Consumption: ${fuelConsumption} | Engine Size: ${engineSize}`}</p>
+      <h2>
+        {make} <span>{` ${model}, `}</span>
+        {year}
+      </h2>
+      <PropListF>
+        <li>
+          <span>{address.split(',')[1]}</span>
+        </li>
+        <li>
+          <span>{address.split(',')[2]}</span>
+        </li>
+        <li>
+          <span>{`Id: ${id}`}</span>
+        </li>
+        <li>
+          <span>{`Type: ${type.split(',').splice(0, 1).join('')}`}</span>
+        </li>
+      </PropListF>
+
+      <PropListS>
+        <li>
+          <span>{`Fuel Consumption: ${fuelConsumption}`}</span>
+        </li>
+        <li>
+          <span>{`Engine Size: ${engineSize}`}</span>
+        </li>
+      </PropListS>
       <p>{description}</p>
       <h3>Accessories and functionalities:</h3>
-      <ul>
+      <PropListF>
         {accessories.map((item, i) => {
           return <li key={i}>{item}</li>;
         })}
-      </ul>
-      <ul>
+
         {functionalities.map((item, i) => (
           <li key={i}>{item}</li>
         ))}
-      </ul>
+      </PropListF>
       <h3>Rental Conditions: </h3>
-      <ul>
-        {rentalConditions.split('\\').map((item, i) => (
+      <ConditionsList>
+        {rentalConditions.split('\n').map((item, i) => (
           <li key={i}>{item}</li>
         ))}
-        <li key={'mileage'}>{`Mileage: ${mileage}`}</li>
-        <li key={'price'}>{`Price: ${rentalPrice}`}</li>
-      </ul>
-      <a href="tel:+380730000000">Rental car</a>
-    </div>
+        <li key={'mileage'}>
+          {'Mileage: '} <span>{` ${newMileage}`}</span>
+        </li>
+        <li key={'price'}>
+          {'Price: '}
+          <span>{` ${newPrice}`}</span>
+        </li>
+      </ConditionsList>
+      <RentalCarBtn />
+    </CarDetailsWraper>
   );
 };
 

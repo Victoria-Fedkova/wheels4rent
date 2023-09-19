@@ -85,19 +85,21 @@ export const HeaderWrap = styled.div`
 
 export const PropListFirst = styled.ul`
   display: inline-flex;
+  flex-wrap: wrap;
 
   padding: 0;
   margin: 0;
   color: rgba(18, 20, 23, 0.5);
   font-size: 12px;
   line-height: calc(12px / 18px);
-  font-weight: 4;
+  font-weight: 400;
+  letter-spacing: -0.03em;
 
   & li:not(:last-of-type) {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 3px;
+    margin-right: 6px;
   }
 
   & li:not(:last-of-type)::after {
@@ -105,27 +107,28 @@ export const PropListFirst = styled.ul`
     display: inline-block;
     width: 1px;
     height: 14px;
-    background-color: rgba(18, 20, 23, 0.5);
-    margin-left: 3px;
+    background-color: rgba(18, 20, 23, 0.1);
+    margin-left: 6px;
   }
 `;
 
 export const PropListSecond = styled.ul`
   display: inline-flex;
-
+  flex-wrap: wrap;
   padding: 0;
   margin: 0;
   color: rgba(18, 20, 23, 0.5);
   font-size: 12px;
   letter-spacing: -0.03em;
   line-height: calc(12px / 18px);
-  font-weight: 4;
+  font-weight: 400;
   margin-bottom: 28px;
+
   & li:not(:last-of-type) {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 3px;
+    margin-right: 6px;
   }
 
   & li:not(:last-of-type)::after {
@@ -133,7 +136,7 @@ export const PropListSecond = styled.ul`
     display: inline-block;
     width: 1px;
     height: 14px;
-    background-color: rgba(18, 20, 23, 0.5);
-    margin-left: 3px;
+    background-color: rgba(18, 20, 23, 0.1);
+    margin-left: 6px;
   }
 `;
