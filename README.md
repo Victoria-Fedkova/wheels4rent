@@ -35,7 +35,7 @@
  
   <p >
     <a href="https://github.com/Victoria-Fedkova/wheels4rent"><strong>Explore the docs »</strong></a> |
-    <a href="https://github.com/Victoria-Fedkova/wheels4rent">View Demo</a> |
+    <a href="https://victoria-fedkova.github.io/wheels4rent/">View Demo</a> |
     <a href="https://github.com/Victoria-Fedkova/wheels4rent/issues">Report Bug</a> |
     <a href="https://github.com/Victoria-Fedkova/wheels4rent/issues">Request Feature</a>
   </p>
