@@ -59,7 +59,5 @@ export const FooterBottomWrapper = styled.div`
 
 export const Links = styled.div`
   display: flex;
-  & div:not(:last-of-type) {
-    margin-right: 60px;
-  }
+  gap: 30px;
 `;
