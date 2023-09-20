@@ -1,11 +1,14 @@
-import { CarsGallary } from '../../components/CarsGallary/CarsGallary';
+// import { CarsGallary } from '../../components/CarsGallary/CarsGallary';
+import { useEffect } from 'react';
+import { PageWrapper } from './FavouritePage.styled';
+import { ScrollToTop } from '../../components/ScrollToTop/ScrollToTop';
 
 export default function FavouritePage() {
+  useEffect(() => {}, []);
   return (
-    <>
-      <h1>FavouritePage</h1>
-
-      <CarsGallary />
-    </>
+    <div>
+      <PageWrapper>{/* <CarsGallary /> */}</PageWrapper>
+      <ScrollToTop />
+    </div>
   );
 }

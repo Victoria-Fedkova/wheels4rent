@@ -12,7 +12,7 @@ import {
 } from 'redux-persist';
 
 import storage from 'redux-persist/lib/storage';
-import { contactsReducer } from './cars/carsSlice';
+import { carsReducer } from './cars/carsSlice';
 import { filterReducer } from './filter/filterSlice';
 import { likesReducer } from './likes/likesSlice';
 
@@ -32,7 +32,7 @@ const likesPersistConfig = {
 
 export const store = configureStore({
   reducer: {
-    cars: contactsReducer,
+    cars: carsReducer,
     filter: filterReducer,
     likes: persistReducer(likesPersistConfig, likesReducer),
     // likes: likesReducer,

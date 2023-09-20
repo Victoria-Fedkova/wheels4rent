@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const SliderContainer = styled.div`
-  margin: 0 auto 32px;
-
+  margin: 0 auto;
+  padding: 32px 0;
   width: 335px;
 
   box-sizing: border-box;
@@ -16,7 +16,9 @@ export const SliderContainer = styled.div`
     width: 1184px;
   }
 `;
-
+export const ContentWrapper = styled.div`
+  padding: 0 32px 32px 32px;
+`;
 export const SectionWrap = styled.div`
   display: flex;
   justify-content: space-between;

@@ -15,7 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<MainPage />} />
-          <Route path="cars/*" element={<CarsPage />} />
+          <Route path="catalog/*" element={<CarsPage />} />
           <Route path="favorites" element={<FavouritePage />} />
           <Route path="*" element={<NotFound />} />
         </Route>

@@ -1,4 +1,4 @@
-import { fetchCars, updateCar } from './carsOperations';
+import { fetchCars, fetchSomeCars, updateCar } from './carsOperations';
 
 import { isAnyOf } from '@reduxjs/toolkit';
 
@@ -15,7 +15,11 @@ export const handleFulfilled = state => {
 };
 
 export const handleFetch = (state, action) => {
-  state.cars = action.payload;
+  state.cars.cars = action.payload;
+};
+export const handleFetchSome = (state, action) => {
+  console.log(action.payload);
+  state.cars.someCars.push(...action.payload);
 };
 
 export const handleUpdate = (state, { payload }) => {
@@ -31,5 +35,5 @@ export const handleUpdate = (state, { payload }) => {
   state.error = null;
 };
 
-const arrThunks = [fetchCars, updateCar];
+const arrThunks = [fetchCars, updateCar, fetchSomeCars];
 export const createStatus = type => isAnyOf(...arrThunks.map(el => el[type]));

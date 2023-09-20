@@ -6,7 +6,10 @@ import {
   selectPrice,
 } from '../filter/filterSelectors';
 
-export const selectCars = state => state.cars.cars;
+export const selectCars = state => state.cars.cars.cars;
+export const selectSomeCars = state => state.cars.cars.someCars;
+export const selectPage = state => state.cars.cars.page;
+
 export const selectIsLoading = state => state.cars.isLoading;
 export const selectError = state => state.cars.error;
 
@@ -22,10 +25,13 @@ export const selectFilteredCars = createSelector(
         )
       : carsFilteredByModel;
     const carsFilteredByMileage =
-      mileageFrom | mileageTo
-        ? carsFilteredByPrice.filter(
-            car => car.mileage >= mileageFrom && car.mileage <= mileageTo
-          )
+      mileageFrom || mileageTo
+        ? carsFilteredByPrice.filter(car => {
+            if (mileageFrom && mileageTo)
+              return car.mileage >= mileageFrom && car.mileage <= mileageTo;
+            if (mileageFrom && !mileageTo) return car.mileage >= mileageFrom;
+            if (!mileageFrom && mileageTo) return car.mileage <= mileageTo;
+          })
         : carsFilteredByPrice;
     return carsFilteredByMileage;
   }

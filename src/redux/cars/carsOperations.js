@@ -7,7 +7,22 @@ export const fetchCars = createAsyncThunk(
   'cars/fetchCars',
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get('/cars');
+      const response = await axios.get('/adverts');
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const fetchSomeCars = createAsyncThunk(
+  'cars/fetchSomeCars',
+  async (data, thunkAPI) => {
+    console.log(data, 'data page');
+    try {
+      const response = await axios.get('/adverts', {
+        params: { limit: 8, page: data },
+      });
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -20,7 +35,7 @@ export const updateCar = createAsyncThunk(
   async (payload, thunkAPI) => {
     try {
       const { car, popular } = payload;
-      const res = await axios.put(`/cars/${car.id}`, { popular });
+      const res = await axios.put(`/adverts/${car.id}`, { popular });
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

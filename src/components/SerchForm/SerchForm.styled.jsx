@@ -5,8 +5,9 @@ export const FormContainer = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #fff;
-  margin-bottom: 50px;
-  height: 160px;
+  height: 120px;
+  border-radius: 14px;
+  margin-top: 32px;
   & form {
     display: flex;
     gap: 18px;
@@ -58,7 +59,7 @@ export const FormContainer = styled.div`
     background-color: #3470ff;
     transition: all 250ms linear;
     &:disabled {
-      background-color: rgba(138, 138, 137, 0.8);
+      background-color: rgba(18, 20, 23, 0.5);
     }
     &:hover :not(:disabled),
     &:focus :not(:disabled) {
@@ -152,6 +153,9 @@ export const MileageSelect = styled.label`
     color: #121417;
     border: none;
     padding-left: 18px;
+    &::placeholder {
+      color: #121417;
+    }
     &:focus {
       outline: none;
       border: none;

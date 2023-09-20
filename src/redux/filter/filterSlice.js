@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { Notify } from 'notiflix';
 
 const filterInitialState = {
-  filter: { model: [], price: '', mileageFrom: '', mileageTo: '' },
+  filter: { model: [], price: '', mileageFrom: 0, mileageTo: 0 },
 };
 
 const filterSlice = createSlice({

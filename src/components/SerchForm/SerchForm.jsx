@@ -13,6 +13,13 @@ import { selectCars } from '../../redux/cars/carsSelectors';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { setFilter } from '../../redux/filter/filterSlice';
+import {
+  selectMileageFrom,
+  selectMileageTo,
+  selectModels,
+  selectPrice,
+} from '../../redux/filter/filterSelectors';
+import { useState } from 'react';
 
 const VALUE_PREFIX = 'To ';
 const VALUE_SUFFIX = '$';
@@ -53,10 +60,19 @@ const modelOptions = cars => {
 };
 
 export const SerchForm = () => {
+  const [fromValue, serFromValue] = useState();
+  const [toValue, setToValue] = useState();
+  console.log('fromValue', fromValue);
+
   const carsAll = useSelector(selectCars);
   const dispatch = useDispatch();
   const models = modelOptions(carsAll);
   const prices = priceOptions(carsAll);
+
+  const defaultModels = useSelector(selectModels);
+  const defaultPrice = useSelector(selectPrice);
+  const defaultMileageFrom = useSelector(selectMileageFrom);
+  const defaultMileageTo = useSelector(selectMileageTo);
 
   const handleSubmit = values => {
     const payload = {
@@ -75,10 +91,10 @@ export const SerchForm = () => {
   return (
     <Formik
       initialValues={{
-        model: [],
-        price: null,
-        mileageFrom: null,
-        mileageTo: null,
+        model: defaultModels || [],
+        price: defaultPrice || null,
+        mileageFrom: defaultMileageFrom || null,
+        mileageTo: defaultMileageTo || null,
       }}
       validationSchema={Yup.object().shape({
         model: Yup.array().of(
@@ -107,6 +123,7 @@ export const SerchForm = () => {
           handleSubmit,
           handleReset,
           isValid,
+          resetForm,
         } = props;
         return (
           <FormContainer>
@@ -117,6 +134,7 @@ export const SerchForm = () => {
                   as={Select}
                   isClearable
                   isMulti
+                  defaultValue={defaultModels}
                   name="model"
                   placeholder="Enter the text"
                   onChange={val => {
@@ -125,6 +143,12 @@ export const SerchForm = () => {
                   components={{
                     IndicatorSeparator: () => null,
                     DropdownIndicator,
+                  }}
+                  styles={{
+                    placeholder: base => ({
+                      ...base,
+                      color: '#121417',
+                    }),
                   }}
                   options={models}
                 />
@@ -137,6 +161,13 @@ export const SerchForm = () => {
                   name="price"
                   placeholder="To $"
                   isClearable
+                  defaultValue={defaultPrice}
+                  styles={{
+                    placeholder: base => ({
+                      ...base,
+                      color: '#121417',
+                    }),
+                  }}
                   components={{
                     SingleValue: ({ children, ...props }) => {
                       return (
@@ -162,6 +193,7 @@ export const SerchForm = () => {
                     placeholder={'From '}
                     thousandSeparator=","
                     name="mileageFrom"
+                    value={fromValue}
                     onChange={values => {
                       const newValue = values.target.value
                         ? Number(
@@ -172,6 +204,7 @@ export const SerchForm = () => {
                           )
                         : null;
                       setFieldValue('mileageFrom', newValue);
+                      serFromValue(newValue);
                     }}
                   />
                   <Field
@@ -180,6 +213,7 @@ export const SerchForm = () => {
                     placeholder={'To '}
                     thousandSeparator=","
                     name="mileageTo"
+                    value={toValue}
                     onChange={values => {
                       const newValue = values.target.value
                         ? Number(
@@ -191,6 +225,7 @@ export const SerchForm = () => {
                         : null;
 
                       setFieldValue('mileageTo', newValue);
+                      setToValue(newValue);
                     }}
                   />
                 </span>
@@ -204,6 +239,26 @@ export const SerchForm = () => {
 
               <button type="submit" disabled={!dirty || !isValid}>
                 Search
+              </button>
+              <button
+                type="button"
+                disabled={!dirty}
+                onClick={() => {
+                  const payload = {
+                    model: [],
+                    price: '',
+                    mileageFrom: 0,
+                    mileageTo: 0,
+                  };
+                  // handleReset();
+                  resetForm();
+                  serFromValue('');
+                  setToValue('');
+                  console.log('values', values);
+                  dispatch(setFilter(payload));
+                }}
+              >
+                Reset results
               </button>
             </Form>
           </FormContainer>
