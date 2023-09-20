@@ -28,7 +28,7 @@ export const SideBarSlider = () => {
         x={state.x}
         onChange={({ x }) => setState(state => ({ ...state, x }))}
         onDragEnd={e => {
-          const x = Math.round(e.changedTouches[0].clientX);
+          const x = Math.round(e.clientX);
           dispatch(setFilter({ price: x }));
         }}
       />
