@@ -1,8 +1,14 @@
-# React + Vite
+# Wheels for Rent   
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<img width="1208" alt="Снимок экрана 2023-09-20 в 23 33 13" src="https://github.com/Victoria-Fedkova/wheels4rent/assets/63882255/2faebc34-fec8-4fd8-81a6-5d9ffd6ebeea">
 
-Currently, two official plugins are available:
+React + Vite Aplication created to find your best car rental with easy way
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<p align="center">
+    <a href="https://github.com/Victoria-Fedkova/wheels4rent/commits/main">
+    <img src="https://img.shields.io/github/last-commit/ArmynC/ArminC-AutoExec.svg?style=flat-square&logo=github&logoColor=white"
+         alt="GitHub last commit">
+    <a href="https://github.com/Victoria-Fedkova/wheels4rent/pulls">
+    <img src="https://img.shields.io/github/issues-pr-raw/Victoria-Fedkova/wheels4rent.svg?style=flat-square&logo=github&logoColor=white"
+         alt="GitHub pull requests">
+</p>
