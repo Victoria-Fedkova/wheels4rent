@@ -4,7 +4,7 @@ export const CarDetailsWraper = styled.div`
   background-color: #fff;
   border-radius: 24px;
   padding: 40px;
-  max-height: 100vh;
+  /* max-height: 100vh; */
   max-width: 541px;
 
   position: relative;

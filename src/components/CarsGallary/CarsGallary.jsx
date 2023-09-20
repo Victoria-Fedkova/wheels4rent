@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
-import { selectCars } from '../../redux/cars/carsSelectors';
+import { selectCars, selectFilteredCars } from '../../redux/cars/carsSelectors';
 import { CarCard } from '../CarCard/CarCard';
 import { CarsList } from './CarsGallary.styled';
 import { selectLikes } from '../../redux/likes/likesSelectors';
@@ -14,7 +14,7 @@ export const CarsGallary = () => {
   const { pathname } = useLocation();
   const cars = useSelector(selectCars);
   const favouriteCars = useSelector(selectLikes);
-
+  const filteredCars = useSelector(selectFilteredCars);
   const popularCars = cars
     .filter(car => car.popular >= 0)
     .sort((p1, p2) => (p1.popular <= p2.popular ? 1 : -1))
@@ -23,13 +23,29 @@ export const CarsGallary = () => {
   if (pathname.includes('favorites')) {
     return (
       <>
-        <ul>
+        <CarsList>
           {favouriteCars.map(car => {
             return (
               <CarCard key={car.id} car={car} setCarToShow={setCarToShow} />
             );
           })}
-        </ul>
+        </CarsList>
+        {carToShow && (
+          <Modal car={carToShow} setCarToShow={setCarToShow}></Modal>
+        )}
+      </>
+    );
+  }
+  if (pathname.includes('cars')) {
+    return (
+      <>
+        <CarsList>
+          {filteredCars.map(car => {
+            return (
+              <CarCard key={car.id} car={car} setCarToShow={setCarToShow} />
+            );
+          })}
+        </CarsList>
         {carToShow && (
           <Modal car={carToShow} setCarToShow={setCarToShow}></Modal>
         )}

@@ -14,6 +14,7 @@ export const TestSlider = styled(Slider)`
     border-radius: 20px;
 
     text-align: left;
+    color: white;
 
     background-size: cover;
     background-repeat: no-repeat;

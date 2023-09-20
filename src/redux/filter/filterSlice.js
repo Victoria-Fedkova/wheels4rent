@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { Notify } from 'notiflix';
 
 const filterInitialState = {
-  filter: {},
+  filter: { model: [], price: '', mileageFrom: '', mileageTo: '' },
 };
 
 const filterSlice = createSlice({
@@ -10,6 +11,7 @@ const filterSlice = createSlice({
   reducers: {
     setFilter(state, action) {
       state.filter = action.payload;
+      Notify.info('Great! Look what we got.');
     },
   },
 });

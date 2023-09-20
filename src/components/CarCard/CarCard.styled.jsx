@@ -7,6 +7,17 @@ export const CardWrapper = styled.li`
   & button {
     width: 100%;
     background-color: #3470ff;
+    color: white;
+    transition: all 250ms linear;
+
+    &:hover,
+    &:focus {
+      background-color: #0b44cd;
+    }
+  }
+
+  &:hover img {
+    transform: scale(1.1);
   }
 `;
 
@@ -22,11 +33,6 @@ export const ImgWrapper = styled.div`
     height: 240px;
     object-fit: cover;
     transition: all 250ms linear;
-
-    &:hover,
-    &:focus {
-      transform: scale(1.1);
-    }
   }
 
   & > button {
@@ -41,9 +47,11 @@ export const ImgWrapper = styled.div`
     transition: all 250ms linear;
     width: 18px;
     height: 18px;
+
     &:hover,
     &:focus {
       outline: none;
+      background: transparent;
     }
 
     & svg {
@@ -99,7 +107,7 @@ export const PropListFirst = styled.ul`
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 6px;
+    margin-right: 3px;
   }
 
   & li:not(:last-of-type)::after {
@@ -108,7 +116,7 @@ export const PropListFirst = styled.ul`
     width: 1px;
     height: 14px;
     background-color: rgba(18, 20, 23, 0.1);
-    margin-left: 6px;
+    margin-left: 3px;
   }
 `;
 
@@ -128,7 +136,7 @@ export const PropListSecond = styled.ul`
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 6px;
+    margin-right: 3px;
   }
 
   & li:not(:last-of-type)::after {
@@ -137,6 +145,6 @@ export const PropListSecond = styled.ul`
     width: 1px;
     height: 14px;
     background-color: rgba(18, 20, 23, 0.1);
-    margin-left: 6px;
+    margin-left: 3px;
   }
 `;
