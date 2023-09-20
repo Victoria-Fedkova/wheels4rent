@@ -23,7 +23,9 @@ export const handleFetchSome = (state, action) => {
 };
 
 export const handleUpdate = (state, { payload }) => {
-  const updateCarIndex = state.cars.findIndex(car => car.id === payload.id);
+  const updateCarIndex = state.cars.cars.findIndex(
+    car => car.id === payload.id
+  );
 
   if (updateCarIndex >= 0) {
     state.cars[updateCarIndex] = {

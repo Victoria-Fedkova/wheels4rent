@@ -2,6 +2,11 @@ import styled from 'styled-components';
 
 export const SocialContainer = styled.div`
   display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
 
 export const SocialLink = styled.a`
@@ -15,9 +20,6 @@ export const SocialLink = styled.a`
   border: 1px solid rgba(195, 212, 233, 0.4);
   color: rgba(18, 20, 23, 0.5);
 
-  &:not(:last-of-type) {
-    margin-right: 1rem;
-  }
   &:hover,
   &:focus {
     background-color: #3470ff;

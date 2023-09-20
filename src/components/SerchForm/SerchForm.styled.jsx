@@ -5,14 +5,20 @@ export const FormContainer = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #fff;
-  height: 120px;
+  min-height: 120px;
   border-radius: 14px;
   margin-top: 32px;
+  padding: 12px;
   & form {
     display: flex;
     gap: 18px;
-    justify-content: center;
-    align-items: flex-end;
+    flex-direction: column;
+    @media (min-width: 1280px) {
+      flex-direction: row;
+
+      justify-content: center;
+      align-items: flex-end;
+    }
   }
 
   & label {

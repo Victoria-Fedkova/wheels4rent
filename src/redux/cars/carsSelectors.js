@@ -5,6 +5,7 @@ import {
   selectModels,
   selectPrice,
 } from '../filter/filterSelectors';
+import { selectLikes } from '../likes/likesSelectors';
 
 export const selectCars = state => state.cars.cars.cars;
 export const selectSomeCars = state => state.cars.cars.someCars;
@@ -34,5 +35,21 @@ export const selectFilteredCars = createSelector(
           })
         : carsFilteredByPrice;
     return carsFilteredByMileage;
+  }
+);
+
+export const selectFilteredLikes = createSelector(
+  [selectModels, selectPrice, selectLikes],
+  (model, price, cars) => {
+    const carsFilteredByModel =
+      model.length > 0 ? cars.filter(car => model.includes(car.make)) : cars;
+
+    const carsFilteredByPrice = price
+      ? carsFilteredByModel.filter(
+          car => car.rentalPrice.split('$')[1] <= price
+        )
+      : carsFilteredByModel;
+
+    return carsFilteredByPrice;
   }
 );

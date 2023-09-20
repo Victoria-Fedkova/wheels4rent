@@ -242,7 +242,6 @@ export const SerchForm = () => {
               </button>
               <button
                 type="button"
-                disabled={!dirty}
                 onClick={() => {
                   const payload = {
                     model: [],
@@ -250,11 +249,9 @@ export const SerchForm = () => {
                     mileageFrom: 0,
                     mileageTo: 0,
                   };
-                  // handleReset();
                   resetForm();
                   serFromValue('');
                   setToValue('');
-                  console.log('values', values);
                   dispatch(setFilter(payload));
                 }}
               >

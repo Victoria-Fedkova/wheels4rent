@@ -5,7 +5,6 @@ import { ContentWrapper } from '../MainPage/MainPage.styled';
 import { useEffect } from 'react';
 import { fetchSomeCars } from '../../redux/cars/carsOperations';
 import { selectPage } from '../../redux/cars/carsSelectors';
-import { ScrollToTop } from '../../components/ScrollToTop/ScrollToTop';
 
 export default function CarsPage() {
   const dispatch = useDispatch();
@@ -23,7 +22,6 @@ export default function CarsPage() {
       <ContentWrapper>
         <CarsGallary />
       </ContentWrapper>
-      <ScrollToTop />
     </div>
   );
 }

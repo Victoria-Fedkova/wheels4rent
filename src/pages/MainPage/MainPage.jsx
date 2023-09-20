@@ -6,7 +6,6 @@ import {
 } from './MainPage.styled';
 import { Link } from 'react-router-dom';
 import { CarsGallary } from '../../components/CarsGallary/CarsGallary';
-import { ScrollToTop } from '../../components/ScrollToTop/ScrollToTop';
 
 export default function MainPage() {
   return (
@@ -21,7 +20,6 @@ export default function MainPage() {
         </SectionWrap>
         <CarsGallary />
       </ContentWrapper>
-      <ScrollToTop />
     </div>
   );
 }

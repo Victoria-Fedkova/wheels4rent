@@ -17,3 +17,7 @@ export const Wrapper = styled.div`
     width: calc(100% - 289px);
   }
 `;
+
+export const Main = styled.main`
+  display: ${props => (props.$isFavouritePage ? 'flex' : 'block')};
+`;

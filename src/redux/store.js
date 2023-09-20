@@ -35,10 +35,8 @@ export const store = configureStore({
     cars: carsReducer,
     filter: filterReducer,
     likes: persistReducer(likesPersistConfig, likesReducer),
-    // likes: likesReducer,
 
-    // popular: popularReducer,
-    // recomended: recomendedReducer,
+    // recent: recentReducer,
   },
   middleware,
 });

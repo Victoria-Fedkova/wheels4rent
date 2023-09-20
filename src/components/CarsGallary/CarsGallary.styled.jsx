@@ -2,10 +2,30 @@ import styled from 'styled-components';
 
 export const CarsList = styled.ul`
   display: grid;
-  grid-template-columns: repeat(4, 274px);
+  /* grid-template-columns: repeat(4, 274px);
   grid-auto-rows: 426px;
   row-gap: 50px;
-  column-gap: 29px;
+  column-gap: 29px; */
+
+  grid-template-columns: repeat(1, minmax(210, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(210, 1fr));
+  grid-row-gap: 20px;
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(336px, 1fr));
+
+    grid-template-rows: repeat(auto-fit, 1fr);
+    grid-column-gap: 32px;
+    grid-row-gap: 32px;
+  }
+
+  @media (min-width: 1280px) {
+    display: grid;
+    grid-template-columns: ${props =>
+      props.$isFavouritePage ? 'repeat(3, 274px)' : 'repeat(4, 274px)'};
+    grid-template-rows: auto;
+  }
 `;
 
 export const LoadMoreBtn = styled.button`

@@ -4,6 +4,7 @@ export const CardWrapper = styled.li`
   background-color: #fff;
   border-radius: 14px;
   padding: 12px;
+
   & button {
     width: 100%;
     background-color: #3470ff;

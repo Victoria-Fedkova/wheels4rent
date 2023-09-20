@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   selectCars,
   selectFilteredCars,
+  selectFilteredLikes,
   selectPage,
   selectSomeCars,
 } from '../../redux/cars/carsSelectors';
@@ -19,12 +20,12 @@ export const CarsGallary = () => {
   const [carToShow, setCarToShow] = useState(null);
   const dispatch = useDispatch();
   const { pathname } = useLocation();
-
+  const isFavouritePage = pathname.includes('favorites');
   const cars = useSelector(selectCars);
   const someCars = useSelector(selectSomeCars);
   const favouriteCars = useSelector(selectLikes);
   const filteredCars = useSelector(selectFilteredCars);
-  console.log('filteredCars', filteredCars);
+  const filteredLikes = useSelector(selectFilteredLikes);
   const popularCars = cars
     .filter(car => car.popular >= 0)
     .sort((p1, p2) => (p1.popular <= p2.popular ? 1 : -1))
@@ -40,8 +41,11 @@ export const CarsGallary = () => {
   };
 
   const carsToRender = useMemo(() => {
-    if (pathname.includes('favorites')) {
+    if (pathname.includes('favorites') && !isFiltered) {
       return favouriteCars;
+    }
+    if (pathname.includes('favorites') && isFiltered) {
+      return filteredLikes;
     }
     if (pathname.includes('catalog') && isFiltered) {
       return filteredCars;
@@ -57,19 +61,20 @@ export const CarsGallary = () => {
     pathname,
     popularCars,
     someCars,
+    filteredLikes,
   ]);
 
   return (
     <>
-      <CarsList>
+      <CarsList $isFavouritePage={isFavouritePage}>
         <CardsListItems cars={carsToRender} setCarToShow={setCarToShow} />
       </CarsList>
 
-      {page <= totalPages && !isFiltered && (
+      {page <= totalPages && !isFiltered && !isFavouritePage ? (
         <LoadMoreBtn type="button" onClick={() => HandleLoadMore(page)}>
           Load more
         </LoadMoreBtn>
-      )}
+      ) : null}
       {carToShow && <Modal car={carToShow} setCarToShow={setCarToShow}></Modal>}
     </>
   );

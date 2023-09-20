@@ -11,11 +11,18 @@ export const FooterWraper = styled.div`
 `;
 export const FooterTopWrapper = styled.div`
   padding: 34px 0;
-
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  border-bottom: 1px solid rgba(195, 212, 233, 0.4);
+  flex-direction: column;
+  gap: 1rem;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    gap: 0;
+
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid rgba(195, 212, 233, 0.4);
+  }
 
   & p {
     margin-top: 24px;
