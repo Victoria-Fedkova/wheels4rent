@@ -9,7 +9,6 @@ import { selectPage } from '../../redux/cars/carsSelectors';
 export default function CarsPage() {
   const dispatch = useDispatch();
   const page = useSelector(selectPage);
-  console.log(page);
   useEffect(() => {
     dispatch(fetchSomeCars(page));
   }, [dispatch, page]);

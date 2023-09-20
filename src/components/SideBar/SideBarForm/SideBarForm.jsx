@@ -12,18 +12,7 @@ export const SideBarForm = () => {
   const likes = useSelector(selectLikes);
   const dispatch = useDispatch();
   const models = modelOptions(likes);
-  console.log('models', models);
   const filters = useSelector(selectModels);
-  // const handleSubmit = values => {
-  //   const payload = {
-  //     model: values.model.length > 0 ? [...new Set(values.model)] : [],
-  //     price: values.price ? values.price.checkedType : null,
-  //     mileageFrom: 0,
-  //     mileageTo: 0,
-  //   };
-
-  //   dispatch(setFilter(payload));
-  // };
 
   return (
     <div>
@@ -55,8 +44,6 @@ export const SideBarForm = () => {
           })}
         </div>
       </CheckboxForm>
-      {/* )}
-      </Formik> */}
     </div>
   );
 };

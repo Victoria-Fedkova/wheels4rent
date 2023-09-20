@@ -1,7 +1,6 @@
 #root {
   & main {
     display: flex;
-    /* padding: 32px; */
     max-width: 1248px;
     margin: 0 auto;
   }

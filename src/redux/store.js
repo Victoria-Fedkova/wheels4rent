@@ -35,8 +35,6 @@ export const store = configureStore({
     cars: carsReducer,
     filter: filterReducer,
     likes: persistReducer(likesPersistConfig, likesReducer),
-
-    // recent: recentReducer,
   },
   middleware,
 });

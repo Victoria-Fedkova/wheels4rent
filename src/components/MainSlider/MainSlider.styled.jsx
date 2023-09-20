@@ -25,7 +25,7 @@ export const TestSlider = styled(Slider)`
       max-width: 580px;
     }
 
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 1280px) {
       margin-right: 24px;
     }
     &:nth-child(even) {

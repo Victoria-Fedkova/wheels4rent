@@ -62,7 +62,6 @@ const modelOptions = cars => {
 export const SerchForm = () => {
   const [fromValue, serFromValue] = useState();
   const [toValue, setToValue] = useState();
-  console.log('fromValue', fromValue);
 
   const carsAll = useSelector(selectCars);
   const dispatch = useDispatch();

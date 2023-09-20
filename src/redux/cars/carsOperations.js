@@ -18,7 +18,6 @@ export const fetchCars = createAsyncThunk(
 export const fetchSomeCars = createAsyncThunk(
   'cars/fetchSomeCars',
   async (data, thunkAPI) => {
-    console.log(data, 'data page');
     try {
       const response = await axios.get('/adverts', {
         params: { limit: 8, page: data },

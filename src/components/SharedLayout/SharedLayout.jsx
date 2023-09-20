@@ -7,8 +7,6 @@ import { fetchCars } from '../../redux/cars/carsOperations';
 import { SideBar } from '../SideBar/SideBar';
 import { ScrollToTop } from '../ScrollToTop/ScrollToTop';
 import { Main } from './SharedLayout.styled';
-// import { Container } from '../../styles/Container.styled';
-// import { Loader } from '../Loader/Loader';
 
 export const SharedLayout = () => {
   const { pathname } = useLocation();

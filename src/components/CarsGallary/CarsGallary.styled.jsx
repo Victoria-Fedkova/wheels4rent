@@ -2,10 +2,6 @@ import styled from 'styled-components';
 
 export const CarsList = styled.ul`
   display: grid;
-  /* grid-template-columns: repeat(4, 274px);
-  grid-auto-rows: 426px;
-  row-gap: 50px;
-  column-gap: 29px; */
 
   grid-template-columns: repeat(1, minmax(210, 1fr));
   grid-template-rows: repeat(auto-fit, minmax(210, 1fr));

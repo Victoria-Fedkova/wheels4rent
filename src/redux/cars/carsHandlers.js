@@ -18,7 +18,6 @@ export const handleFetch = (state, action) => {
   state.cars.cars = action.payload;
 };
 export const handleFetchSome = (state, action) => {
-  console.log(action.payload);
   state.cars.someCars.push(...action.payload);
 };
 

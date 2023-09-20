@@ -21,6 +21,8 @@ export const CarsGallary = () => {
   const dispatch = useDispatch();
   const { pathname } = useLocation();
   const isFavouritePage = pathname.includes('favorites');
+  const isHomePage =
+    !pathname.includes('favorites') && !pathname.includes('catalog');
   const cars = useSelector(selectCars);
   const someCars = useSelector(selectSomeCars);
   const favouriteCars = useSelector(selectLikes);
@@ -70,7 +72,7 @@ export const CarsGallary = () => {
         <CardsListItems cars={carsToRender} setCarToShow={setCarToShow} />
       </CarsList>
 
-      {page <= totalPages && !isFiltered && !isFavouritePage ? (
+      {page <= totalPages && !isFiltered && !isFavouritePage && !isHomePage ? (
         <LoadMoreBtn type="button" onClick={() => HandleLoadMore(page)}>
           Load more
         </LoadMoreBtn>

@@ -4,7 +4,6 @@ export const CarDetailsWraper = styled.div`
   background-color: #fff;
   border-radius: 24px;
   padding: 40px;
-  /* max-height: 100vh; */
   max-width: 541px;
 
   position: relative;
@@ -28,7 +27,6 @@ export const CarDetailsWraper = styled.div`
   & img {
     display: block;
     width: 100%;
-    /* max-width: 461px; */
     max-height: 248px;
     border-radius: 14px;
     object-fit: cover;
