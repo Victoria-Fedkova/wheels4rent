@@ -70,6 +70,8 @@ export const FormContainer = styled.div`
     &:hover :not(:disabled),
     &:focus :not(:disabled) {
       background-color: #0b44cd;
+      outline: none;
+      border: none;
     }
   }
 `;

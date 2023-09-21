@@ -26,9 +26,9 @@ const middleware = [
 ];
 
 const likesPersistConfig = {
-  key: 'likes',
+  key: ['likes'],
   storage,
-  whitelist: ['likes'],
+  whitelist: ['likes', 'recent'],
 };
 
 export const store = configureStore({

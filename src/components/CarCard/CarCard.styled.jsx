@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const CardWrapper = styled.li`
+export const CardWrapper = styled.div`
   background-color: #fff;
   border-radius: 14px;
   padding: 12px;

@@ -14,7 +14,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { selectLikes } from '../../redux/likes/likesSelectors';
 import { updateCar } from '../../redux/cars/carsOperations';
-import { addLike, deleteLike } from '../../redux/likes/likesSlice';
+import { addLike, addRecent, deleteLike } from '../../redux/likes/likesSlice';
 
 export const CarCard = ({ car, setCarToShow }) => {
   const dispatch = useDispatch();
@@ -41,6 +41,7 @@ export const CarCard = ({ car, setCarToShow }) => {
     setCarToShow(car);
     const newPopular = currentPopular + 1;
     dispatch(updateCar({ car, popular: newPopular }));
+    dispatch(addRecent(car));
   };
 
   return (

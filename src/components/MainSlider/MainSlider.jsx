@@ -15,18 +15,26 @@ const MainSlider = () => {
     infinite: true,
     slidesToShow: 2,
     slidesToScroll: 1,
+    mobileFirst: true,
     autoplay: true,
     autoplaySpeed: 6000,
     pauseOnHover: true,
     adaptiveHeight: true,
     variableWidth: true,
     dots: true,
-    slide: 'ul',
+    slide: 'div',
     responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
       {
         breakpoint: 1200,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 1,
         },
       },
@@ -45,7 +53,7 @@ const MainSlider = () => {
             </p>
           </div>
           <RentalCarBtn />
-          <img src={car1} />
+          <img src={car1} alt="car" />
         </SliderWrapper>
         <SliderWrapper>
           <div>
@@ -57,7 +65,7 @@ const MainSlider = () => {
           </div>
           <RentalCarBtn />
 
-          <img src={car2} />
+          <img src={car2} alt="car" />
         </SliderWrapper>
         <SliderWrapper>
           <div>
@@ -69,7 +77,7 @@ const MainSlider = () => {
           </div>
           <RentalCarBtn />
 
-          <img src={car3} />
+          <img src={car3} alt="car" />
         </SliderWrapper>
         <SliderWrapper>
           <div>
@@ -78,7 +86,7 @@ const MainSlider = () => {
           </div>
           <RentalCarBtn />
 
-          <img src={car4} />
+          <img src={car4} alt="car" />
         </SliderWrapper>
         <SliderWrapper>
           <div>
@@ -87,7 +95,7 @@ const MainSlider = () => {
           </div>
           <RentalCarBtn />
 
-          <img src={car5} />
+          <img src={car5} alt="car" />
         </SliderWrapper>
       </TestSlider>
     </>

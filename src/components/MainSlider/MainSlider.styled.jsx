@@ -6,8 +6,8 @@ import Slider from 'react-slick';
 
 export const TestSlider = styled(Slider)`
   & .slick-slide {
-    min-width: 335px;
     max-width: 335px;
+    /* max-width: 100%; */
 
     padding: 10px 20px;
 
@@ -21,12 +21,14 @@ export const TestSlider = styled(Slider)`
     background-position: center;
 
     @media screen and (min-width: 768px) {
-      min-width: 580px;
-      max-width: 580px;
+      max-width: 372px;
+      margin-right: 24px;
     }
 
     @media screen and (min-width: 1280px) {
-      margin-right: 24px;
+      min-width: 580px;
+
+      /* margin-right: 24px; */
     }
     &:nth-child(even) {
       border: 1px solid #54a6ff;
@@ -50,7 +52,7 @@ export const TestSlider = styled(Slider)`
     }
     & img {
       display: block;
-      max-height: 116px;
+      max-height: 90px;
       margin-left: auto;
     }
   }
@@ -63,7 +65,7 @@ export const SliderWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    max-width: 60%;
+    max-width: 80%;
     min-height: 160px;
   }
 

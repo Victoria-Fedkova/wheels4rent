@@ -1,10 +1,12 @@
 import { useLocation } from 'react-router-dom';
+import { Loader } from '../Loader/Loader';
 
 import { useDispatch, useSelector } from 'react-redux';
 import {
   selectCars,
   selectFilteredCars,
   selectFilteredLikes,
+  selectIsLoading,
   selectPage,
   selectSomeCars,
 } from '../../redux/cars/carsSelectors';
@@ -16,7 +18,8 @@ import { SelectIsFiltered } from '../../redux/filter/filterSelectors';
 import { CardsListItems } from '../CardsListItems/CardsListItems';
 import { setPage } from '../../redux/cars/carsSlice';
 
-export const CarsGallary = () => {
+export const CarsGallary = ({ carsList }) => {
+  const isLoading = useSelector(selectIsLoading);
   const [carToShow, setCarToShow] = useState(null);
   const dispatch = useDispatch();
   const { pathname } = useLocation();
@@ -68,16 +71,30 @@ export const CarsGallary = () => {
 
   return (
     <>
-      <CarsList $isFavouritePage={isFavouritePage}>
-        <CardsListItems cars={carsToRender} setCarToShow={setCarToShow} />
-      </CarsList>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <CarsList $isFavouritePage={isFavouritePage}>
+            <CardsListItems
+              cars={carsList && carsList.length > 0 ? carsList : carsToRender}
+              setCarToShow={setCarToShow}
+            />
+          </CarsList>
 
-      {page <= totalPages && !isFiltered && !isFavouritePage && !isHomePage ? (
-        <LoadMoreBtn type="button" onClick={() => HandleLoadMore(page)}>
-          Load more
-        </LoadMoreBtn>
-      ) : null}
-      {carToShow && <Modal car={carToShow} setCarToShow={setCarToShow}></Modal>}
+          {page <= totalPages &&
+          !isFiltered &&
+          !isFavouritePage &&
+          !isHomePage ? (
+            <LoadMoreBtn type="button" onClick={() => HandleLoadMore(page)}>
+              Load more
+            </LoadMoreBtn>
+          ) : null}
+          {carToShow && (
+            <Modal car={carToShow} setCarToShow={setCarToShow}></Modal>
+          )}
+        </>
+      )}
     </>
   );
 };

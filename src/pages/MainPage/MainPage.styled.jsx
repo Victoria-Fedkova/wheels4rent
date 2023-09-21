@@ -3,17 +3,17 @@ import styled from 'styled-components';
 export const SliderContainer = styled.div`
   margin: 0 auto;
   padding: 32px 0;
-  width: 335px;
+  max-width: 335px;
 
   box-sizing: border-box;
   overflow: hidden;
 
   @media screen and (min-width: 768px) {
-    width: 580px;
+    max-width: 768px;
   }
 
   @media screen and (min-width: 1280px) {
-    width: 1184px;
+    max-width: 1184px;
   }
 `;
 export const ContentWrapper = styled.div`
@@ -27,7 +27,12 @@ export const SectionWrap = styled.div`
   font-weight: 600px;
   color: #8a8a89;
   padding: 10px 20px;
-  margin-bottom: 20px;
+
+  &:not(:first-of-type) {
+    margin-bottom: 20px;
+  }
+  margin-top: 20px;
+
   & a {
     color: #3470ff;
     transition: all 250ms linear;

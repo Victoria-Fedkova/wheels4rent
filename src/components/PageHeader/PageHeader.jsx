@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faHeart,
@@ -67,4 +68,9 @@ export const PageHeader = ({ currentState, handleToggleSideBar }) => {
       </HeaderWraper>
     </Header>
   );
+};
+
+PageHeader.propTypes = {
+  currentState: PropTypes.bool,
+  handleToggleSideBar: PropTypes.func,
 };

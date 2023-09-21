@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const CarsList = styled.ul`
+export const CarsList = styled.div`
   display: grid;
 
   grid-template-columns: repeat(1, minmax(210, 1fr));

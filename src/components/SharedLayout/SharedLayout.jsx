@@ -9,6 +9,7 @@ import { ScrollToTop } from '../ScrollToTop/ScrollToTop';
 import { Main } from './SharedLayout.styled';
 import { toggleSideBar } from '../../redux/sidebar/sidebarSlice';
 import { selectOpenSideBar } from '../../redux/sidebar/sidebarSelectors';
+import { Loader } from '../Loader/Loader';
 
 export const SharedLayout = () => {
   const { pathname } = useLocation();
@@ -32,7 +33,7 @@ export const SharedLayout = () => {
       />
       <Main $isFavouritePage={isFavouritePage}>
         {isFavouritePage && <SideBar currentState={currentState} />}
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
       </Main>

@@ -6,19 +6,23 @@ export const Header = styled.header`
   background-color: #fff;
 `;
 export const HeaderWraper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   min-height: 92px;
   max-width: 1248px;
   padding: 1em 2rem;
 
   margin: 0 auto;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
   & nav {
-    display: inline-flex;
+    display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 1rem;
+    padding: 10px 0;
   }
 `;
 export const NavLinks = styled(NavLink)`
