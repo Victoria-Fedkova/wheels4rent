@@ -12,7 +12,7 @@ import {
   PropListSecond,
 } from './CarCard.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectLikes } from '../../redux/likes/likesSelectors';
+import { selectLikes, selectRecent } from '../../redux/likes/likesSelectors';
 import { updateCar } from '../../redux/cars/carsOperations';
 import { addLike, addRecent, deleteLike } from '../../redux/likes/likesSlice';
 
@@ -21,7 +21,7 @@ export const CarCard = ({ car, setCarToShow }) => {
 
   const favoriteCars = useSelector(selectLikes);
   const currentPopular = car.popular;
-
+  const recenrCars = useSelector(selectRecent);
   const isFavorite = favoriteCars.some(item => car.id === item.id);
   const isPremium = car.description.includes('premium', 'convertible');
 
@@ -41,7 +41,9 @@ export const CarCard = ({ car, setCarToShow }) => {
     setCarToShow(car);
     const newPopular = currentPopular + 1;
     dispatch(updateCar({ car, popular: newPopular }));
-    dispatch(addRecent(car));
+    if (!recenrCars.includes(car)) {
+      dispatch(addRecent(car));
+    }
   };
 
   return (

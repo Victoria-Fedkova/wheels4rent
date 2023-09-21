@@ -36,5 +36,5 @@ export const handleUpdate = (state, { payload }) => {
   state.error = null;
 };
 
-const arrThunks = [fetchCars, updateCar, fetchSomeCars];
+const arrThunks = [fetchCars, fetchSomeCars];
 export const createStatus = type => isAnyOf(...arrThunks.map(el => el[type]));

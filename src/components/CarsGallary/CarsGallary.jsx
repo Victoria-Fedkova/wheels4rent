@@ -71,30 +71,21 @@ export const CarsGallary = ({ carsList }) => {
 
   return (
     <>
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <>
-          <CarsList $isFavouritePage={isFavouritePage}>
-            <CardsListItems
-              cars={carsList && carsList.length > 0 ? carsList : carsToRender}
-              setCarToShow={setCarToShow}
-            />
-          </CarsList>
+      {isLoading && <Loader />}
 
-          {page <= totalPages &&
-          !isFiltered &&
-          !isFavouritePage &&
-          !isHomePage ? (
-            <LoadMoreBtn type="button" onClick={() => HandleLoadMore(page)}>
-              Load more
-            </LoadMoreBtn>
-          ) : null}
-          {carToShow && (
-            <Modal car={carToShow} setCarToShow={setCarToShow}></Modal>
-          )}
-        </>
-      )}
+      <CarsList $isFavouritePage={isFavouritePage}>
+        <CardsListItems
+          cars={carsList && carsList.length > 0 ? carsList : carsToRender}
+          setCarToShow={setCarToShow}
+        />
+      </CarsList>
+
+      {page <= totalPages && !isFiltered && !isFavouritePage && !isHomePage ? (
+        <LoadMoreBtn type="button" onClick={() => HandleLoadMore(page)}>
+          Load more
+        </LoadMoreBtn>
+      ) : null}
+      {carToShow && <Modal car={carToShow} setCarToShow={setCarToShow}></Modal>}
     </>
   );
 };
