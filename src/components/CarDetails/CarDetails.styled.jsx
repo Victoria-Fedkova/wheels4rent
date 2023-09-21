@@ -3,11 +3,16 @@ import styled from 'styled-components';
 export const CarDetailsWraper = styled.div`
   background-color: #fff;
   border-radius: 24px;
-  padding: 40px;
-  max-width: 541px;
-
+  padding: 18px;
+  min-width: 335px;
+  width: 100%;
   position: relative;
   color: #121417;
+
+  @media (min-width: 768px) {
+    max-width: 541px;
+    padding: 40px;
+  }
 
   & button {
     padding: 0;
@@ -26,7 +31,7 @@ export const CarDetailsWraper = styled.div`
 
   & img {
     display: block;
-    width: 100%;
+    min-width: 100%;
     max-height: 248px;
     border-radius: 14px;
     object-fit: cover;
