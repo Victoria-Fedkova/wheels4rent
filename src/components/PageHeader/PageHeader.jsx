@@ -11,10 +11,13 @@ import { Header, HeaderWraper, NavLinks, SideBtn } from './PageHeader.styled';
 import { useDispatch } from 'react-redux';
 import { setFilter } from '../../redux/filter/filterSlice';
 import { useMediaQuery } from 'react-responsive';
+import { useLocation } from 'react-router-dom';
 
 export const PageHeader = ({ currentState, handleToggleSideBar }) => {
   const dispatch = useDispatch();
   const isMobile = useMediaQuery({ query: '(max-width: 1279px)' });
+  const { pathname } = useLocation();
+  const isFavouritePage = pathname.includes('favorites');
   return (
     <Header>
       <HeaderWraper>
@@ -51,7 +54,7 @@ export const PageHeader = ({ currentState, handleToggleSideBar }) => {
               }}
             />
           </NavLinks>
-          {isMobile && (
+          {isMobile && isFavouritePage && (
             <SideBtn onClick={handleToggleSideBar}>
               {currentState ? (
                 <FontAwesomeIcon icon={faClose} />
