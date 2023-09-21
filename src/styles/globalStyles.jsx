@@ -6,6 +6,7 @@ import ManropeSemiBold from '../fonts/Manrope-SemiBold.ttf';
 
 const GlobalStyle = createGlobalStyle`
 
+
     @font-face {
         font-family: 'ManropeRegular';
         src: local('ManropeRegular'),

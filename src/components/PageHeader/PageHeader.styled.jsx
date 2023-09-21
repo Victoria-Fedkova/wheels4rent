@@ -45,7 +45,25 @@ export const NavLinks = styled(NavLink)`
     &:focus {
       background-color: #3470ff;
       color: white;
-      border-color: #3470ff;
     }
+  }
+`;
+
+export const SideBtn = styled.button`
+  transition: all 250ms linear;
+  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(195, 212, 233, 0.4);
+  color: rgba(18, 20, 23, 0.5);
+  fill: rgba(18, 20, 23, 0.5);
+  background-color: white;
+  &:hover,
+  &:focus {
+    background-color: #3470ff;
+    color: white;
   }
 `;

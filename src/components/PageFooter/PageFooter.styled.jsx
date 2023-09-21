@@ -13,6 +13,7 @@ export const FooterTopWrapper = styled.div`
   padding: 34px 0;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1rem;
 
   @media (min-width: 768px) {

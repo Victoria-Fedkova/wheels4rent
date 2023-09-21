@@ -5,6 +5,19 @@ export const SideBarWrapper = styled.div`
   background-color: white;
   min-height: 100%;
   padding: 32px;
+  @media screen and (max-width: 1280px) {
+    position: fixed;
+    z-index: 999;
+    height: 100%;
+    transform: ${props =>
+      props.$isOpen ? 'transform: translateX(0%)' : 'translateX(-100%)'};
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  body & {
+    overflow: ${props => (props.$isOpen ? 'hidden' : 'auto')};
+    overflow: hidden;
+  }
 `;
 
 export const CheckboxForm = styled.form`

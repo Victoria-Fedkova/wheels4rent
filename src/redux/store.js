@@ -15,6 +15,7 @@ import storage from 'redux-persist/lib/storage';
 import { carsReducer } from './cars/carsSlice';
 import { filterReducer } from './filter/filterSlice';
 import { likesReducer } from './likes/likesSlice';
+import { sideBarReducer } from './sidebar/sidebarSlice';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -35,6 +36,7 @@ export const store = configureStore({
     cars: carsReducer,
     filter: filterReducer,
     likes: persistReducer(likesPersistConfig, likesReducer),
+    sideBar: sideBarReducer,
   },
   middleware,
 });

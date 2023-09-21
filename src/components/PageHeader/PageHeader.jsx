@@ -1,12 +1,20 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart, faCar, faHome } from '@fortawesome/free-solid-svg-icons';
+import {
+  faHeart,
+  faCar,
+  faHome,
+  faBookOpen,
+  faClose,
+} from '@fortawesome/free-solid-svg-icons';
 import { Logo } from '../Logo/Logo';
-import { Header, HeaderWraper, NavLinks } from './PageHeader.styled';
+import { Header, HeaderWraper, NavLinks, SideBtn } from './PageHeader.styled';
 import { useDispatch } from 'react-redux';
 import { setFilter } from '../../redux/filter/filterSlice';
+import { useMediaQuery } from 'react-responsive';
 
-export const PageHeader = () => {
+export const PageHeader = ({ currentState, handleToggleSideBar }) => {
   const dispatch = useDispatch();
+  const isMobile = useMediaQuery({ query: '(max-width: 1279px)' });
   return (
     <Header>
       <HeaderWraper>
@@ -43,6 +51,15 @@ export const PageHeader = () => {
               }}
             />
           </NavLinks>
+          {isMobile && (
+            <SideBtn onClick={handleToggleSideBar}>
+              {currentState ? (
+                <FontAwesomeIcon icon={faClose} />
+              ) : (
+                <FontAwesomeIcon icon={faBookOpen} />
+              )}
+            </SideBtn>
+          )}
         </nav>
       </HeaderWraper>
     </Header>

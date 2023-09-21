@@ -42,7 +42,7 @@ export const ImgWrapper = styled.div`
     right: 14px;
     border: none;
     background: transparent;
-    z-index: 1000;
+    z-index: 2;
     padding: 0;
     margin: 0;
     transition: all 250ms linear;

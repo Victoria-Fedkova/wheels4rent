@@ -2,11 +2,13 @@ import { Outlet, useLocation } from 'react-router-dom';
 import { Suspense, useEffect } from 'react';
 import { PageHeader } from '../PageHeader/PageHeader';
 import { PageFooter } from '../PageFooter/PageFooter';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchCars } from '../../redux/cars/carsOperations';
 import { SideBar } from '../SideBar/SideBar';
 import { ScrollToTop } from '../ScrollToTop/ScrollToTop';
 import { Main } from './SharedLayout.styled';
+import { toggleSideBar } from '../../redux/sidebar/sidebarSlice';
+import { selectOpenSideBar } from '../../redux/sidebar/sidebarSelectors';
 
 export const SharedLayout = () => {
   const { pathname } = useLocation();
@@ -15,11 +17,21 @@ export const SharedLayout = () => {
   useEffect(() => {
     dispatch(fetchCars());
   }, [dispatch]);
+
+  const currentState = useSelector(selectOpenSideBar);
+
+  const handleToggleSideBar = () => {
+    dispatch(toggleSideBar());
+  };
+
   return (
     <>
-      <PageHeader />
+      <PageHeader
+        currentState={currentState}
+        handleToggleSideBar={handleToggleSideBar}
+      />
       <Main $isFavouritePage={isFavouritePage}>
-        {isFavouritePage && <SideBar />}
+        {isFavouritePage && <SideBar currentState={currentState} />}
         <Suspense fallback={<div>Loading...</div>}>
           <Outlet />
         </Suspense>
