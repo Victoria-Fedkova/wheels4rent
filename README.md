@@ -94,6 +94,8 @@
 
  <p align="left">Filters for custom favorites </p>
 <img width="1232" alt="Снимок экрана 2023-09-21 в 01 13 35" src="https://github.com/Victoria-Fedkova/wheels4rent/assets/63882255/782d178d-daa4-4302-9ecb-67fe6b569089">
+<p align="left">Responsive sidebar with additional controll button</p>
+<img width="716" alt="Снимок экрана 2023-09-22 в 04 31 55" src="https://github.com/Victoria-Fedkova/wheels4rent/assets/63882255/92dfad36-6ee9-49c7-8fd8-1896b99b31c9">
 
  See the [open issues](https://github.com/victoria-fedkova/wheels4rent/issues) for a full list of proposed features (and known issues).
 
