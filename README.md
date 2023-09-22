@@ -89,6 +89,9 @@
  <p align="left">Recommend popular cars based on user viewing. </p>
 <img width="1337" alt="Снимок экрана 2023-09-20 в 23 16 23" src="https://github.com/Victoria-Fedkova/wheels4rent/assets/63882255/5188c881-6b13-4e27-beac-79310dff638d">
 
+ <p align="left">Save and show user viewed cars. </p>
+ <img width="1315" alt="Снимок экрана 2023-09-22 в 01 52 45" src="https://github.com/Victoria-Fedkova/wheels4rent/assets/63882255/f59ab828-8c46-4047-acfc-cc683e037224">
+
  <p align="left">Filters for custom favorites </p>
 <img width="1232" alt="Снимок экрана 2023-09-21 в 01 13 35" src="https://github.com/Victoria-Fedkova/wheels4rent/assets/63882255/782d178d-daa4-4302-9ecb-67fe6b569089">
 
