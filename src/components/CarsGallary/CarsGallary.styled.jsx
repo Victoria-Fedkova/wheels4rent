@@ -39,3 +39,8 @@ export const LoadMoreBtn = styled.button`
     outline: none;
   }
 `;
+
+export const PlaceHolder = styled.h2`
+  text-align: center;
+  color: rgba(18, 20, 23, 0.5);
+`;

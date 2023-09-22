@@ -10,7 +10,7 @@ import {
   selectPage,
   selectSomeCars,
 } from '../../redux/cars/carsSelectors';
-import { CarsList, LoadMoreBtn } from './CarsGallary.styled';
+import { CarsList, LoadMoreBtn, PlaceHolder } from './CarsGallary.styled';
 import { selectLikes } from '../../redux/likes/likesSelectors';
 import { useMemo, useState } from 'react';
 import { Modal } from '../Modal/Modal';
@@ -78,12 +78,22 @@ export const CarsGallary = ({ carsList }) => {
           cars={carsList && carsList.length > 0 ? carsList : carsToRender}
           setCarToShow={setCarToShow}
         />
+
+        {isFavouritePage && carsToRender.length === 0 ? (
+          <PlaceHolder>
+            No cars to show... Change your choise or select your favourite car
+            from the catalog.
+          </PlaceHolder>
+        ) : null}
       </CarsList>
 
       {page <= totalPages && !isFiltered && !isFavouritePage && !isHomePage ? (
         <LoadMoreBtn type="button" onClick={() => HandleLoadMore(page)}>
           Load more
         </LoadMoreBtn>
+      ) : null}
+      {isFiltered && carsToRender.length === 0 ? (
+        <PlaceHolder>No results... Try something else.</PlaceHolder>
       ) : null}
       {carToShow && <Modal car={carToShow} setCarToShow={setCarToShow}></Modal>}
     </>
