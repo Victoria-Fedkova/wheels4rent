@@ -2,9 +2,13 @@ import styled from 'styled-components';
 
 export const LogoLink = styled.a`
   display: block;
-  color: #3470ff;
   font-size: 32px;
 
+  background: -webkit-linear-gradient(#eee, #3470ff, rgba(11, 68, 205, 1));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  transition: all 250ms linear;
   font-weight: bold;
   line-height: 1.5;
   letter-spacing: -0.03em;
