@@ -75,6 +75,12 @@ export const FormContainer = styled.div`
     }
   }
 `;
+export const BtnsWprap = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+`;
 
 export const ModelSelect = styled.label`
   & .css-13cymwt-control,

@@ -2,6 +2,7 @@ import { Formik, Form, Field } from 'formik';
 import { NumericFormat } from 'react-number-format';
 import * as Yup from 'yup';
 import {
+  BtnsWprap,
   FormContainer,
   MileageSelect,
   ModelSelect,
@@ -213,27 +214,28 @@ export const SerchForm = () => {
                   <b>{errors.mileageTo}</b>
                 ) : null}
               </MileageSelect>
-
-              <button type="submit" disabled={!dirty || !isValid}>
-                Search
-              </button>
-              <button
-                type="button"
-                onClick={() => {
-                  const payload = {
-                    model: [],
-                    price: '',
-                    mileageFrom: 0,
-                    mileageTo: 0,
-                  };
-                  resetForm();
-                  serFromValue('');
-                  setToValue('');
-                  dispatch(setFilter(payload));
-                }}
-              >
-                Reset results
-              </button>
+              <BtnsWprap>
+                <button type="submit" disabled={!dirty || !isValid}>
+                  Search
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    const payload = {
+                      model: [],
+                      price: '',
+                      mileageFrom: 0,
+                      mileageTo: 0,
+                    };
+                    resetForm();
+                    serFromValue('');
+                    setToValue('');
+                    dispatch(setFilter(payload));
+                  }}
+                >
+                  Reset results
+                </button>
+              </BtnsWprap>
             </Form>
           </FormContainer>
         );
