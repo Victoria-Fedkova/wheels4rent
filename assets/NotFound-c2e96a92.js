@@ -1,0 +1,1 @@
+import{j as n}from"./index-f41b2327.js";const s="/wheels4rent/assets/pngegg-fbdb189f.png";function e(){return n.jsxs("div",{children:[n.jsx("h1",{children:"404 Page not found"}),n.jsx("img",{src:s,alt:"Page not found"})]})}export{e as default};
