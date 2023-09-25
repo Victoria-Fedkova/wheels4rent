@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { lazy } from 'react';
 
@@ -8,10 +8,13 @@ const CarsPage = lazy(() => import('./pages/CarsPage/CarsPage'));
 const NotFound = lazy(() => import('./pages/NotFound/NotFound'));
 import './App.css';
 import { SharedLayout } from './components/SharedLayout/SharedLayout';
+import GlobalStyle from './styles/globalStyles';
 
 function App() {
   return (
-    <HelmetProvider>
+    // <HelmetProvider>
+    <BrowserRouter basename={import.meta.env.DEV ? '/' : '/wheels4rent/'}>
+      <GlobalStyle />
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<MainPage />} />
@@ -20,7 +23,8 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
-    </HelmetProvider>
+    </BrowserRouter>
+    // </HelmetProvider>
   );
 }
 
