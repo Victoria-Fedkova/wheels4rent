@@ -92,7 +92,7 @@ export const CarsGallary = ({ carsList }) => {
           Load more
         </LoadMoreBtn>
       ) : null}
-      {isFiltered && carsToRender.length === 0 ? (
+      {isFiltered && carsToRender.length === 0 && !isFavouritePage ? (
         <PlaceHolder>No results... Try something else.</PlaceHolder>
       ) : null}
       {carToShow && <Modal car={carToShow} setCarToShow={setCarToShow}></Modal>}
