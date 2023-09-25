@@ -13,7 +13,7 @@ import GlobalStyle from './styles/globalStyles';
 function App() {
   return (
     // <HelmetProvider>
-    <BrowserRouter basename={ '/'}>
+    <BrowserRouter basename={import.meta.env.DEV ? '/' : '/wheels4rent/'}>
       <GlobalStyle />
       <Routes>
         <Route path="/" element={<SharedLayout />}>
